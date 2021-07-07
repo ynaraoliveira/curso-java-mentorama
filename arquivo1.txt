@@ -1,2 +1,4 @@
 Onde estou e onde quero estar?
 Outra linha
+Vamos adicionar um conflito
+Eu estou com fome
