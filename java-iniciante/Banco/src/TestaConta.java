@@ -68,13 +68,14 @@ public class TestaConta {
     int opcao;
 
     do {
-      System.out.println("Opção 1: Cadastrar usuário");
+      System.out.println("Opção 1: Cadastrar cliente");
       System.out.println("Opção 2: Cadastrar conta corrente");
       System.out.println("Opção 3: Cadastrar conta poupança");
       System.out.println("Opção 4: Cadastrar conta salário");
       System.out.println("Opção 5: Listar contas");
       System.out.println("Opção 6: Transferir saldo entre contas");
       System.out.println("Opção 7: Exibir saldo total do banco");
+      System.out.println("Opção 8: Listar clientes");
       System.out.println("Opção 0: Sair");
 
       System.out.println("Qual opcão você deseja?");
@@ -201,11 +202,15 @@ public class TestaConta {
         break;
       }
 
-      case 6: {
-        Scanner sc = new Scanner(System.in);
+      case 8: {
+        System.out.println("---------------- LISTA DE CLIENTES CADASTRADAS ----------------");
 
-        contasDB.getContas()
+        for(Cliente cliente : clientesDB.getClientesList()) {
+          System.out.println("---------------------------------");
+          System.out.println(cliente.toString());
+        }
       }
+
     }
   }
 }
