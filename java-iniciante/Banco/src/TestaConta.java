@@ -94,7 +94,7 @@ public class TestaConta {
         System.out.println("CADASTRAR NOVO USUÁRIO");
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual o id do cliente? ");
-        String id = sc.next();
+        String id = sc.nextLine();
         System.out.println("Qual o nome do cliente? ");
         String nome = sc.nextLine();
 
@@ -199,6 +199,12 @@ public class TestaConta {
           System.out.println(conta.toString());
         }
         break;
+      }
+
+      case 6: {
+        Scanner sc = new Scanner(System.in);
+
+        contasDB.getContas()
       }
     }
   }
