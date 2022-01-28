@@ -25,7 +25,7 @@ public class ClientesDB {
   }
 
   public Cliente getClientePorId(int id) {
-    return clientesMap.get(id);
+    return clientesMap.get(String.valueOf(id));
   }
 
 }

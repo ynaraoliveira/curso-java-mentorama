@@ -1,5 +1,6 @@
 package db;
 
+import models.Cliente;
 import models.Conta;
 
 import java.util.ArrayList;
@@ -22,5 +23,14 @@ public class ContasDB {
 
   public void addNovaConta(Conta conta) {
     contasDBMap.put(conta.getNumero(), conta);
+  }
+
+  public Conta getContaPorAgencia(int agencia) {
+  return contasDBMap.get(agencia);
+  }
+
+  public double getSaldoTotal(Conta conta) {
+    List<Double> contas = new ArrayList<>();
+    return 0;
   }
 }

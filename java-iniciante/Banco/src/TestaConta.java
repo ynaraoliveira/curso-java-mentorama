@@ -12,46 +12,6 @@ public class TestaConta {
 
   public static void main(String[] args) throws Exception {
 
-//    ContaCorrente cc1 = new ContaCorrente(1, 123, "models.Banco Roxo", 100, 200);
-//
-//    System.out.println("--------------------- CONTA CORRENTE ---------------------");
-//    System.out.println(cc1);
-//    cc1.sacar(10);
-//    System.out.println("O saldo da conta corrente é R$" + cc1.getSaldo());
-//    cc1.sacar(18.5);
-//    System.out.println("O saldo da conta corrente é R$" + cc1.getSaldo());
-//    cc1.depositar(10);
-//    System.out.println("O saldo da conta corrente é R$" + cc1.getSaldo());
-//    System.out.println("A taxa de imposto é " + cc1.getValorImposto());
-//
-//    ContaPoupanca cp1 = new ContaPoupanca(2, 456, "models.Banco Roxo", 5000, 1.06, new Cliente(1, "Ana"));
-//
-//    System.out.println("--------------------- CONTA POUPANÇA ---------------------");
-//    System.out.println(cp1);
-//    cp1.rendimentoAnual();
-//    System.out.println("O saldo da conta poupança é R$" + cp1.getSaldo());
-//    cp1.sacar(1000);
-//    System.out.println("O saldo da conta poupança após saque é R$" + cp1.getSaldo());
-//    cp1.depositar(500);
-//    System.out.println("O saldo da conta poupança após depósito é R$" + cp1.getSaldo());
-//
-//    ContaSalario cs1 = new ContaSalario(3, 789, "models.Banco Roxo", 3000);
-//
-//    System.out.println("--------------------- CONTA SALÁRIO ---------------------");
-//    System.out.println(cs1);
-//    cs1.sacar(100);
-//    System.out.println("O saldo da conta poupança após saque é R$" + cs1.getSaldo());
-//    cs1.sacar(200);
-//    System.out.println("O saldo da conta poupança após saque é R$" + cs1.getSaldo());
-////    RN: terceiro saque nao vai funcionar
-//    cs1.sacar(300);
-//    System.out.println(cs1.getValorImposto());
-//
-////    teste de transferencia
-//    cs1.transferir(cp1, cs1, 10);
-//    System.out.println(cs1.getSaldo());
-//    System.out.println(cp1.getSaldo());
-//
 ////    solução do prof
 //    Conta contas[] = new Conta[3];
 //    contas[0] = cc1;
@@ -196,9 +156,36 @@ public class TestaConta {
         System.out.println("---------------- LISTA DE CONTAS CADASTRADAS ----------------");
 
         for(Conta conta : contasDB.getContas()) {
-          System.out.println("---------------------------------");
           System.out.println(conta.toString());
+          System.out.println("---------------------------------");
         }
+        break;
+      }
+
+      case 6: {
+        System.out.println("---------------- TRANSFERÊNCIA ENTRE CONTAS ----------------");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Qual o valor da transferência? ");
+        double valor = sc.nextDouble();
+        System.out.println("Qual a agência da conta a receber? ");
+        int agenciaAReceber = sc.nextInt();
+        System.out.println("Qual a agência da conta a debitar? ");
+        int agenciaADebitar = sc.nextInt();
+
+        Conta contaADebitar = contasDB.getContaPorAgencia(agenciaAReceber);
+        Conta contaAReceber = contasDB.getContaPorAgencia(agenciaADebitar);
+        contaADebitar.transferir(contaAReceber, contaADebitar, valor);
+        System.out.println("Saldo da conta " + contaAReceber.getCliente() + " " + contaAReceber.getSaldo());
+        System.out.println("Saldo da conta " + contaADebitar.getCliente() + " " + contaADebitar.getSaldo());
+
+        break;
+      }
+
+      case 7: {
+        System.out.println("---------------- SALDO TOTAL DO BANCO ----------------");
+
+        for(Conta conta : contasDB.getContas())
         break;
       }
 
@@ -206,9 +193,10 @@ public class TestaConta {
         System.out.println("---------------- LISTA DE CLIENTES CADASTRADAS ----------------");
 
         for(Cliente cliente : clientesDB.getClientesList()) {
-          System.out.println("---------------------------------");
           System.out.println(cliente.toString());
+          System.out.println("---------------------------------");
         }
+        break;
       }
 
     }
