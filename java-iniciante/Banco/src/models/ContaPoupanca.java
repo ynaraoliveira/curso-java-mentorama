@@ -40,7 +40,7 @@ public class ContaPoupanca extends Conta {
 
   @Override
   public String toString() {
-    return "models.Conta corrente:: agência " + super.getAgencia() + ", número " + super.getNumero() +
+    return "Conta poupança:: agência " + super.getAgencia() + ", número " + super.getNumero() +
             ", banco " + super.getBanco() + ", saldo R$" + getSaldo() + ", taxa de juros " + juros +
             ", id do cliente " + getCliente().getId() + ", nome do cliente " +  getCliente().getNome();
   }

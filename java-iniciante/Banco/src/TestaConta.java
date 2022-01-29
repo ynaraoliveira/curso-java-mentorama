@@ -12,19 +12,6 @@ public class TestaConta {
 
   public static void main(String[] args) throws Exception {
 
-////    solução do prof
-//    Conta contas[] = new Conta[3];
-//    contas[0] = cc1;
-//    contas[1] = cp1;
-//    contas[2] = cs1;
-//
-//    System.out.println("Obtendo o saldo das contas:");
-//    for (Conta conta:contas) {
-//      System.out.println(conta);
-//      System.out.println("Saldo atual: R$" + conta.getSaldo());
-//      System.out.println("--------------");
-//    }
-
     int opcao;
 
     do {
@@ -184,8 +171,12 @@ public class TestaConta {
 
       case 7: {
         System.out.println("---------------- SALDO TOTAL DO BANCO ----------------");
+        double saldoTotal = 0;
 
-        for(Conta conta : contasDB.getContas())
+        for(Conta conta : contasDB.getContas()) {
+          saldoTotal += conta.getSaldo();
+        }
+        System.out.println("O saldo total do banco é R$" + saldoTotal);
         break;
       }
 

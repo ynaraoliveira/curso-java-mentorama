@@ -52,7 +52,7 @@ public class ContaCorrente extends Conta implements Tributavel {
 
   @Override
   public String toString() {
-    return "models.Conta corrente:: agência " + super.getAgencia() + ", número " + super.getNumero() +
+    return "Conta corrente:: agência " + super.getAgencia() + ", número " + super.getNumero() +
             ", banco " + super.getBanco() + ", saldo R$" + getSaldo() + ", cheque especial R$" + chequeEspecial +
             ", id do cliente " + getCliente().getId() + ", nome do cliente " +  getCliente().getNome();
   }
