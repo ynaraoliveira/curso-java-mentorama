@@ -1,5 +1,6 @@
 package db;
 
+import models.Cliente;
 import models.Usuario;
 
 import java.util.ArrayList;
@@ -17,5 +18,12 @@ public class UsuariosDB {
     int id = usuarioList.size() + 1;
     usuario.setId(id);
     usuarioList.add(usuario);
+  }
+
+  public Usuario getUsuarioPorId(int idCliente) {
+    return usuarioList.stream()
+            .filter(cliente -> cliente.getId() == idCliente)
+            .findFirst()
+            .get();
   }
 }

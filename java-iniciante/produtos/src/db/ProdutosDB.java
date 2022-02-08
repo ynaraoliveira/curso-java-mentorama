@@ -1,5 +1,6 @@
 package db;
 
+import models.Estoque;
 import models.Produto;
 
 import java.util.ArrayList;
