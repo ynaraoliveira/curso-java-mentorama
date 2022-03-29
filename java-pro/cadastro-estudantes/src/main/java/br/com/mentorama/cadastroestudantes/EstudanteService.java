@@ -19,43 +19,29 @@ public class EstudanteService {
     return estudantes;
   }
 
-  public List<EstudanteModel> findAllEstudantes(String name, String age) throws AlunoNaoExistenteException {
+  public List<EstudanteModel> findAllEstudantes(String name, Integer age) throws AlunoNaoExistenteException {
+    List<EstudanteModel> estudantesFiltro;
     if (name != null) {
-      return estudantes.stream()
-              .filter(aluno -> aluno.getName().contains(name))
+      estudantesFiltro = estudantes.stream()
+              .filter(aluno -> aluno.getName().equals(name))
               .collect(Collectors.toList());
+      if (estudantesFiltro.isEmpty()) {
+        throw new AlunoNaoExistenteException("Aluno não existe");
+      }
+      return estudantesFiltro;
     }
 
     if (age != null) {
-      return estudantes.stream()
-              .filter(aluno -> aluno.getAge().contains(age))
+      estudantesFiltro = estudantes.stream()
+              .filter(aluno -> aluno.getAge().equals(age))
               .collect(Collectors.toList());
-    }
-
-    if (estudantes.isEmpty()) {
-      throw new AlunoNaoExistenteException("Aluno não existe");
+      if (estudantesFiltro.isEmpty()) {
+        throw new AlunoNaoExistenteException("Aluno não existe");
+      }
+      return estudantesFiltro;
     }
     return estudantes;
   }
-
-//  public List<EstudanteModel> findByName(String name) throws AlunoNaoExistenteException {
-//    if (name != null) {
-//      return estudantes.stream()
-//              .filter(aluno -> aluno.getName().contains(name))
-//              .collect(Collectors.toList());
-//    }
-//    return estudantes;
-//    throw new AlunoNaoExistenteException("aa");
-//  }
-
-//  private List<EstudanteModel> findByAge(Integer age) {
-//    if (age != null) {
-//      return estudantes.stream()
-//              .filter(aluno -> aluno.getAge().equals(age))
-//              .collect(Collectors.toList());
-//    }
-//    return estudantes;
-//  }
 
   public EstudanteModel findByIdEstudante(Integer id) throws AlunoNaoExistenteException {
       return estudantes.stream()

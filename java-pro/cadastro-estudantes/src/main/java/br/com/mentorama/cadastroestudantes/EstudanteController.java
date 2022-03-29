@@ -17,15 +17,13 @@ public class EstudanteController {
   }
 
   @GetMapping
-  public List<EstudanteModel> findAll(@RequestParam(required = false) String name,
-                                      @RequestParam(required = false) String age) throws AlunoNaoExistenteException {
+  public List<EstudanteModel> findAll(@RequestParam(required = false) String name, Integer age) throws AlunoNaoExistenteException {
+    try {
       return estudanteService.findAllEstudantes(name, age);
+    } catch (AlunoNaoExistenteException e) {
+      throw new AlunoNaoExistenteException("Aluno não existe");
+    }
   }
-
-//  @GetMapping
-//  public List<EstudanteModel> findAll(@RequestParam(required = false) String name) throws AlunoNaoExistenteException {
-//    return estudanteService.findByName(name);
-//  }
 
   @GetMapping("/id/{id}")
   public EstudanteModel findById(@PathVariable("id") Integer id) throws AlunoNaoExistenteException {

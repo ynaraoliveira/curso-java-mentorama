@@ -4,9 +4,9 @@ public class EstudanteModel {
 
   private Integer id;
   private String name;
-  private String age;
+  private Integer age;
 
-  public EstudanteModel(Integer id, String name, String age) {
+  public EstudanteModel(Integer id, String name, Integer age) {
     this.id = id;
     this.name = name;
     this.age = age;
@@ -28,11 +28,11 @@ public class EstudanteModel {
     this.name = name;
   }
 
-  public String getAge() {
+  public Integer getAge() {
     return age;
   }
 
-  public void setAge(String age) {
+  public void setAge(Integer age) {
     this.age = age;
   }
 }
