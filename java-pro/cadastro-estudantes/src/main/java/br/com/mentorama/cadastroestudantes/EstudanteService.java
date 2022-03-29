@@ -20,7 +20,7 @@ public class EstudanteService {
   }
 
   public List<EstudanteModel> findAllEstudantes(String name, Integer age) throws AlunoNaoExistenteException {
-    List<EstudanteModel> estudantesFiltro;
+    List<EstudanteModel> estudantesFiltro = estudantes;
     if (name != null) {
       estudantesFiltro = estudantes.stream()
               .filter(aluno -> aluno.getName().equals(name))
@@ -28,7 +28,6 @@ public class EstudanteService {
       if (estudantesFiltro.isEmpty()) {
         throw new AlunoNaoExistenteException("Aluno não existe");
       }
-      return estudantesFiltro;
     }
 
     if (age != null) {
@@ -38,9 +37,8 @@ public class EstudanteService {
       if (estudantesFiltro.isEmpty()) {
         throw new AlunoNaoExistenteException("Aluno não existe");
       }
-      return estudantesFiltro;
     }
-    return estudantes;
+    return estudantesFiltro;
   }
 
   public EstudanteModel findByIdEstudante(Integer id) throws AlunoNaoExistenteException {
