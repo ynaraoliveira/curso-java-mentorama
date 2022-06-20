@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
@@ -27,7 +26,7 @@ public class ProductController {
   }
 
   @GetMapping("/{id}")
-  public Product findById(@PathVariable("id") UUID id) {
+  public Product findById(@PathVariable("id") Integer id) {
       return productService.findById(id);
   }
 

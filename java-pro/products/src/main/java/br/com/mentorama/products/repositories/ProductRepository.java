@@ -4,7 +4,6 @@ import br.com.mentorama.products.models.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 public class ProductRepository {
@@ -19,7 +18,7 @@ public class ProductRepository {
     return productList;
   }
 
-  public Product findById(UUID id) {
+  public Product findById(Integer id) {
     return productList.stream()
             .filter(pd -> pd.getId().equals(id))
             .findFirst()
@@ -31,7 +30,7 @@ public class ProductRepository {
   }
 
   public void setId(Product product) {
-    product.setId(UUID.randomUUID());
+    product.setId(productList.size() + 1);
   }
 
 }

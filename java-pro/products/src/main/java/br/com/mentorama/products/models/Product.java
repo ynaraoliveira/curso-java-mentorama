@@ -5,15 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
 
-  private UUID id;
+  private Integer id;
   private String description;
   private Double price;
   private Double maxDiscount;

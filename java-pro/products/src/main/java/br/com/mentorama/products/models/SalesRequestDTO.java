@@ -5,15 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalesRequestDTO {
 
-  private UUID id;
+  private Integer id;
   private Integer quantity;
   private Double discount;
 }
